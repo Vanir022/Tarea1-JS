@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos JavaScript y Estructuras de Control</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Eventos JavaScript y Estructuras de Control</h1>
+            <p>Práctica con 3 eventos y 3 ejercicios con estructuras de control</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>Eventos de JavaScript</h2>
+
+                <!-- EVENTO 1: ONCHANGE -->
+                <div class="event-demo">
+                    <h3>Evento 1: onchange</h3>
+                    <p>Selecciona un color para cambiar el fondo del cuadro:</p>
+                    <select id="colorSelect" onchange="cambiarColorFondo()">
+                        <option value="">Selecciona un color</option>
+                        <option value="red">Rojo</option>
+                        <option value="blue">Azul</option>
+                        <option value="green">Verde</option>
+                        <option value="orange">Naranja</option>
+                        <option value="purple">Morado</option>
+                    </select>
+                    <div class="color-box" id="colorBox"></div>
+                    <div class="code-info">
+                        <strong>Código:</strong><br>
+                        onchange="cambiarColorFondo()" - Se ejecuta cuando cambia el valor del select
+                    </div>
+                </div>
+
+                <!-- EVENTO 2: ONSUBMIT -->
+                <div class="event-demo">
+                    <h3>Evento 2: onsubmit</h3>
+                    <p>Completa el formulario y envíalo (se validará antes del envío):</p>
+                    <div class="form-container">
+                        <form id="formulario" onsubmit="validarFormulario(event)">
+                            <label>Nombre:</label>
+                            <input type="text" id="nombre" placeholder="Ingresa tu nombre">
+                            <br><br>
+                            <label>Email:</label>
+                            <input type="email" id="email" placeholder="Ingresa tu email">
+                            <br><br>
+                            <button type="submit" class="btn">Enviar Formulario</button>
+                        </form>
+                    </div>
+                    <div class="result" id="resultadoForm">Completa el formulario y haz clic en enviar</div>
+                    <div class="code-info">
+                        <strong>Código:</strong><br>
+                        onsubmit="validarFormulario(event)" - Se ejecuta al enviar el formulario
+                    </div>
+                </div>
+
+                <!-- EVENTO 3: ONRESIZE -->
+                <div class="event-demo">
+                    <h3>Evento 3: onresize</h3>
+                    <p>Cambia el tamaño de la ventana del navegador para ver la información actualizada:</p>
+                    <div class="size-display" id="sizeDisplay">
+                        Ancho: <span id="windowWidth">0</span>px |
+                        Alto: <span id="windowHeight">0</span>px
+                    </div>
+                    <div class="code-info">
+                        <strong>Código:</strong><br>
+                        window.onresize = actualizarTamano - Se ejecuta al cambiar el tamaño de ventana
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN DE EJERCICIOS CON ESTRUCTURAS DE CONTROL -->
+            <div class="section">
+                <h2>Ejercicios con Estructuras de Control</h2>
+
+                <!-- EJERCICIO 1: IF/ELSE -->
+                <div class="exercise-container">
+                    <h3>Ejercicio 1: Calculadora de Notas (if/else if/else)</h3>
+                    <p>Ingresa una nota del 0 al 100 para conocer la calificación:</p>
+                    <input type="number" id="notaInput" placeholder="Nota (0-100)" min="0" max="100">
+                    <button class="btn btn-success" onclick="calcularCalificacion()">Calcular</button>
+                    <div class="result" id="resultadoNota">Ingresa una nota para ver el resultado</div>
+                    <div class="code-info">
+                        <strong>Estructuras utilizadas:</strong><br>
+                        if (nota >= 90) → Excelente<br>
+                        else if (nota >= 80) → Muy Bueno<br>
+                        else if (nota >= 70) → Bueno<br>
+                        else if (nota >= 60) → Regular<br>
+                        else → Insuficiente
+                    </div>
+                </div>
+
+                <!-- EJERCICIO 2: SWITCH -->
+                <div class="exercise-container">
+                    <h3>Ejercicio 2: Calculadora de Días (switch)</h3>
+                    <p>Selecciona un mes para conocer cuántos días tiene:</p>
+                    <select id="mesSelect">
+                        <option value="">Selecciona un mes</option>
+                        <option value="1">Enero</option>
+                        <option value="2">Febrero</option>
+                        <option value="3">Marzo</option>
+                        <option value="4">Abril</option>
+                        <option value="5">Mayo</option>
+                        <option value="6">Junio</option>
+                        <option value="7">Julio</option>
+                        <option value="8">Agosto</option>
+                        <option value="9">Septiembre</option>
+                        <option value="10">Octubre</option>
+                        <option value="11">Noviembre</option>
+                        <option value="12">Diciembre</option>
+                    </select>
+                    <button class="btn btn-warning" onclick="calcularDiasMes()">Calcular Días</button>
+                    <div class="result" id="resultadoDias">Selecciona un mes para ver cuántos días tiene</div>
+                    <div class="code-info">
+                        <strong>Estructura utilizada:</strong><br>
+                        switch (mes) { case 1: case 3: case 5: ... → 31 días; case 4: case 6: ... → 30 días; case 2: →
+                        28/29 días }
+                    </div>
+                </div>
+
+                <!-- EJERCICIO 3: FOR LOOP -->
+                <div class="exercise-container">
+                    <h3>Ejercicio 3: Contador de Números Pares (for loop)</h3>
+                    <p>Ingresa un número para mostrar todos los números pares desde 2 hasta ese número:</p>
+                    <input type="number" id="numeroLimite" placeholder="Número límite" min="2" max="50">
+                    <button class="btn" onclick="mostrarPares()">Mostrar Pares</button>
+                    <div class="result" id="resultadoPares">Ingresa un número para ver los pares</div>
+                    <div class="code-info">
+                        <strong>Estructura utilizada:</strong><br>
+                        for (let i = 2; i <= limite; i +=2) { ... } </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>&copy;Tineo Torres Vahit - JavaScript Avanzado</p>
+        </footer>
+        <script src="script.js"></script>
+</body>
+
+</html>
